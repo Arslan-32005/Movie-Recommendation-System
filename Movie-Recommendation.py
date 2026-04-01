@@ -90,14 +90,5 @@ def recommend_by_genre(genre):
     filtered = movies[movies['genres'].apply(lambda x: genre in x)]
     return list(filtered['title'].head(10))
 
-
-recommend('Avatar')
-
-print("\nMovies in Science Fiction:\n")
-print(recommend_by_genre("Science Fiction"))
-
-
 pickle.dump(movies, open('movies.pkl','wb'))
 pickle.dump(similarity, open('similarity.pkl','wb'))
-
-print("\nFiles saved successfully")
